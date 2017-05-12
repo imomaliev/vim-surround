@@ -221,7 +221,8 @@ function! s:wrap(string,char,type,removed,special)
       let after  = '\end'.matchstr(env,'[^}]*').'}'
     endif
   elseif newchar ==# 'f' || newchar ==# 'F'
-    let fnc = input('function: ')
+    " https://github.com/wilywampa/vim-surround/commit/8e1170c4cffcebd451240648a2f065c07befd4fc
+    let fnc = input('function: ', '', 'tag')
     if fnc != ""
       let s:input = fnc."\<CR>"
       let before = substitute(fnc,'($','','').'('
